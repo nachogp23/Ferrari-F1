@@ -1,0 +1,15 @@
+{% extends 'modelos/baseModelo.html.twig' %}
+ 
+{% block body %}
+
+<div class="show-user">
+
+    <p>Hola {{app.user.name}}!</p>
+    <p>Tu username es: {{app.user.username}}</p>
+
+    <a  href="{{path('app_logout')}}"class="btn btn-lg btn-primary">
+            Log Out
+        </a>
+</div>
+
+{% endblock %}

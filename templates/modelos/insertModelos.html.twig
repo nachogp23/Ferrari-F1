@@ -1,0 +1,14 @@
+{% extends 'modelos/baseModelo.html.twig' %}
+ 
+{% block body %}
+
+    {# {% for message in app.flashes("succes") %}
+        <p> {{message}} <p/>
+    {% endfor %} #}
+    <div class="register-form">
+        {{ form_start(modeloForm) }}
+            {{ form_widget(modeloForm) }}
+            <button type="submit">Añadir</button>
+        {{ form_end(modeloForm) }}
+    </div>
+{% endblock %}

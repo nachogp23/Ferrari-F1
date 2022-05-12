@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+		<link rel="stylesheet" href="./styles/modelosList.css">
+        <title>
+			{% block title %}Ferrari
+			{% endblock %}
+		</title>
+		{% block stylesheets %}{% endblock %}
+	</head>
+	<body>
+
+    <nav class="header">
+        <a class="header__Up" href="{{path('listaModelos')}}">
+
+            <img class="header__Up__logo"
+            src="http://assets.stickpng.com/thumbs/580b585b2edbce24c47b2c52.png"
+            alt="Ferari"
+            />
+            
+            <img class="header__Up__logo"
+            src="https://cdn-icons-png.flaticon.com/512/2418/2418779.png"
+            alt="F1"
+            />
+        </a>
+
+        <div class="header__nav">
+            <a
+            href="{{path('listaModelos')}}"
+            class="header__nav__link"
+            >Modelos</a
+            >
+            
+            <a
+            href="{{path('listaPilotos')}}"
+            class="header__nav__link"
+            >Pilotos</a
+            >
+            {% if is_granted('ROLE_USER') %}
+                <a href="{{path('insertModelo')}}" class="header__nav__link">Añadir Modelo</a>
+            {% endif %}
+
+             {% if is_granted('ROLE_USER') %}
+                <a href="{{path('showUser')}}" class="header__nav__link">Bienvenido {{app.user.name}}!</a>
+            {% else %}
+                <a href="{{path('app_login')}}" class="header__nav__link">Iniciar Sesión</a>
+
+            {% endif %}
+    
+        </div>
+    </nav>
+    {% block body %}{% endblock %}
+</body>
+</html>

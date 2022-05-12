@@ -1,0 +1,17 @@
+{% extends 'modelos/baseModelo.html.twig' %}
+ 
+{% block body %}
+
+    {# {% for message in app.flashes("succes") %}
+        <p> {{message}} <p/>
+    {% endfor %} #}
+    <div class="register-form">
+
+    <h1 class="register-form--title"> Crea una cuenta </h1>
+        {{ form_start(userForm) }}
+            {{ form_widget(userForm) }}
+            <button type="submit">Añadir</button>
+        {{ form_end(userForm) }}
+    </div>
+
+{% endblock %}

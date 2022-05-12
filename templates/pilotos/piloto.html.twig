@@ -1,0 +1,29 @@
+{% extends 'modelos/baseModelo.html.twig' %}
+
+{% block body %}
+    <div class="modelos-list__card">
+        {# Driver info #}  
+        <h2 class="modelos-list__card__name">{{piloto.nombre}}</h2>              
+        <div class="modelos-list__card__text">
+            <p class="modelos-list__card__text">{{piloto.titulos}} campeonatos</p> 
+        </div>
+    
+
+        {# Show drivers for each car #}
+        {% if piloto.modelos|length > 0 %} 
+        {# {{dump(modelo.pilotos)}} #}
+        <div> 
+            <p>Modelos: </p>  
+            <ul>
+                {% for modelo in piloto.modelos %}
+                    <li class="modelos-list__card__pilotos"><a href="{{ path('modeloDetalle', {"id": modelo.id}) }}">{{modelo.nombre}} </a></li>
+                {% endfor %}
+        </div>
+        {% endif %}
+    
+        {# Driver image #}
+        <img class="modelos-list__card__img" src={{piloto.imagen}}> 
+        
+    </div>           
+{% endblock %}  
+    

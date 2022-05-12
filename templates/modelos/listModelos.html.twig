@@ -1,0 +1,59 @@
+
+{% extends 'modelos/baseModelo.html.twig' %}
+
+{% block body %}
+	
+    <h1 class="title"> Modelos Ferrari Formula 1</h1>
+	<div class="modelos-list">
+        
+		{% for modelo in modelos %}
+            <div class="modelos-list__card">
+                {# Car info #}
+                <a href="{{ path('modeloDetalle', {"id": modelo.id}) }}" class="modelos-list__card__name"> {{modelo.nombre}} </a>
+                
+                <div class="modelos-list__card__text">
+                    <p>Cilindrada: {{modelo.cilindrada}} c.c.</p> 
+                    <p>Peso: {{modelo.peso}} kg</p> 
+                {# How motor type #}
+                    {% if modelo.turbo %}
+                        <p>Motor turbo</p>
+                    {% else %}
+                        <p>Motor atomosférico</p>
+                    {% endif %}
+                </div>
+         
+
+               {# Show drivers for each car #}
+               {% if modelo.pilotos|length > 0 %} 
+               {# {{dump(modelo.pilotos)}} #}
+                <div> 
+                    <p>Pilotos: </p>  
+                    <ul >
+                        {% for piloto in modelo.pilotos %}
+                            <li class="modelos-list__card__pilotos"> <a href="{{ path('pilotoDetalle', {"id": piloto.id}) }}">{{piloto.nombre}} </a></li>
+                        {% endfor %}
+                    </ul>
+                </div>
+               {% endif %}
+            
+                {# Car image #}
+                <img class="modelos-list__card__img" src={{modelo.imagen}}>
+                
+                {% if is_granted('ROLE_USER') %}
+                <div class ="modelos-list__card__btns">
+                    <a href="{{ path('modeloDetalle', {"id": modelo.id}) }}" class="btn btn-primary">Más Info</a>
+                    <a href="{{ path('updateModelo', {"id": modelo.id}) }}" class="btn btn-primary">Editar</a>
+				    <a href="{{ path('eliminarModelo', {"id": modelo.id}) }}" class="btn btn-primary">Eliminar</a>
+                </div>
+                {% endif %}
+
+            </div>
+        {% endfor %}
+
+	</div>
+	{% endblock %}
+
+
+
+       
+   

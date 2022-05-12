@@ -1,0 +1,37 @@
+
+{% extends 'modelos/baseModelo.html.twig' %}
+  
+{% block body %}    
+
+    <div class="detalle">
+        {# Show car #}
+        <h1 class="detalle__titulo"> {{modelo.nombre}} </h1>
+       
+        <div class="detalle__content">
+    
+            <img  class="detalle__content__img" src={{modelo.imagen}}>
+            
+            
+            <div class="detalle__content__details">
+                {# Car info #}
+                <p>Cilindrada: {{modelo.cilindrada}} c.c.</p>
+                <p>Peso: {{modelo.peso}} kg</p> 
+                {# How motor type #}
+                {% if modelo.turbo %}
+                    <p> Motor turbo </p>
+                {% else %}
+                    <p> Motor atomosférico </p>
+                {% endif %}
+                
+                {# Show drivers for each car #}         
+                <ul>
+                    {% for piloto in modelo.pilotos %}
+                        <li class="modelos-list__card__pilotos"> <a href="{{ path('pilotoDetalle', {"id": piloto.id}) }}">{{piloto.nombre}} </a></li>
+                    {% endfor %}
+                </ul>
+            
+            </div>
+        </div>
+    </div>
+        
+{% endblock %}

@@ -1,0 +1,98 @@
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+body {
+  background-color: #d82020;
+  height: 67vh;
+}
+
+.header {
+  background-color: #ffffff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  font-family: 'Bebas Neue', cursive;
+  height: 15vh;
+  padding: 8px;
+}
+
+.header__Up {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  margin-left: 5%;
+  width: 18%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.header__Up__logo {
+  width: 90%;
+  height: 100%;
+}
+
+.header__nav {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-size: 42px;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-item-align: center;
+      align-self: center;
+  justify-self: center;
+  margin-left: auto;
+}
+
+.header__nav__link {
+  margin-left: 25px;
+  margin-right: 25px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #000000;
+}
+
+.header__nav__link:hover {
+  color: #ff3d3d;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.active-link {
+  color: yellow;
+}
+
+.register-form {
+  padding: 1.5rem;
+  margin-top: 5%;
+  margin-left: auto;
+  margin-right: auto;
+  width: 45%;
+  border: solid;
+  border-color: yellow;
+  font-weight: bold;
+  font-size: 35px;
+  border-radius: 5%;
+  background-color: wheat;
+}
+
+.register-form--title {
+  font-size: 55px;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+}
+/*# sourceMappingURL=modelosList.css.map */
